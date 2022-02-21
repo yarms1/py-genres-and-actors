@@ -3,23 +3,47 @@
 - Warning: Use `pytest app` for testing - not simple `pytest`
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
 
-In `db/models.py` create table `CinameHall`. This table should have
-such field:
-- Char field `name`, name of the hall with maximum length of 50 
+In `db/models.py` create table `Genre` with such fields:
+- Char field `name`, name of the genre with maximum length of 255 
 characters.
-- Integer field `capacity`, the maximum number of spectators, that
-the hall can accommodate.
 
-Inside `app/main.py` make these actions:
+Also create table `Actors` with such fields:
+- Char field `name`, name of the genre with maximum length of 255 
+characters.
+- Char field `surname`, name of the genre with maximum length of 255 
+characters.
+
+Inside `app/main.py`, create `main` function.
+This function should perform these actions:
 1. Create:
-   - Hall "Grey", with capacity equals to 180
-   - Hall "Blue", with capacity equals to 70
-   - Hall "Red", with capacity equals to 124
-   - Hall "Orange", with capacity equals to 58
+   - genre Western
+   - genre Action
+   - genre Dramma
+   - actor George Klooney
+   - actor Kianu Reaves
+   - actress Scarlett Keegan
+   - actor Will Smith
+   - actor Jaden Smith
+   - actress Scarlett Johansson
 2. Update:
-   - Hall "Grey", set capacity to 224
+   - genre Dramma, set name to "Drama"
+   - actor George Klooney, set surname to "Clooney"
+   - actor Kianu Reaves, set name to "Keanu" and surname to "Reeves"
 3. Delete:
-   - Hall "Red"
-4. Return:
-   - Halls with capacity greater or equals to 70 and ordered by capacity
+   - genre Action
+   - all actresses with the name "Scarlett"
+5. Return:
+   - QuerySet of actors with surname "Smith" and ordered by name.
+   
+Example:
+```python
+print(main())
+# <QuerySet [<Actor: Jaden Smith>, <Actor: Will Smith>]>
+
+print(Genre.objects.all())
+# <QuerySet [<Genre: Western>, <Genre: Drama>]>
+
+print(Actor.objects.all())
+# <QuerySet [<Actor: George Clooney>, <Actor: Keanu Reeves>, <Actor: Will Smith>, <Actor: Jaden Smith>]>
+```
 
