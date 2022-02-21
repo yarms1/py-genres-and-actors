@@ -5,8 +5,8 @@ from ..main import main, Genre, Actor
 
 @pytest.mark.django_db
 def test_main():
-    users = main()
-    assert list(users.values_list("name", "surname")) == [
+    actors = main()
+    assert list(actors.values_list("first_name", "last_name")) == [
         ("Jaden", "Smith"),
         ("Will", "Smith"),
     ]
@@ -24,7 +24,7 @@ def test_genres():
 @pytest.mark.django_db
 def test_actors():
     main()
-    assert list(Actor.objects.values_list("name", "surname")) == [
+    assert list(Actor.objects.values_list("first_name", "last_name")) == [
         ("George", "Clooney"),
         ("Keanu", "Reeves"),
         ("Will", "Smith"),
