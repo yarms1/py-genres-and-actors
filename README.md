@@ -35,6 +35,10 @@ This function should perform these actions:
 4. Return:
    - QuerySet of actors with `last_name` "Smith" and ordered by `first_name`
    
+**Note**: if you need to sort the QuerySet, you can use 
+[.order_by()](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#order-by) 
+method
+
 Example:
 ```python
 print(main())
