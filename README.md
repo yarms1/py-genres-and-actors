@@ -8,9 +8,9 @@ In `db/models.py` create table `Genre` with such fields:
 characters.
 
 Also, create table `Actors` with such fields:
-- Char field `name`, name of the actor with the maximum length of 255 
+- Char field `first_name`, name of the actor with the maximum length of 255 
 characters.
-- Char field `surname`, surname of the actor with the maximum length of 255 
+- Char field `last_name`, surname of the actor with the maximum length of 255 
 characters.
 
 Inside `app/main.py`, create `main` function.
@@ -27,14 +27,18 @@ This function should perform these actions:
    - actress Scarlett Johansson
 2. Update:
    - genre Dramma, set `name` to "Drama"
-   - actor George Klooney, set `surname` to "Clooney"
-   - actor Kianu Reaves, set `name` to "Keanu" and `surname` to "Reeves"
+   - actor George Klooney, set `last_name` to "Clooney"
+   - actor Kianu Reaves, set `first_name` to "Keanu" and `last_name` to "Reeves"
 3. Delete:
    - genre Action
-   - all actresses with the name "Scarlett"
-5. Return:
-   - QuerySet of actors with `surname` "Smith" and ordered by `name`.
+   - all actresses with the `first_name` "Scarlett"
+4. Return:
+   - QuerySet of actors with `last_name` "Smith" and ordered by `first_name`
    
+**Note**: if you need to sort the QuerySet, you can use 
+[.order_by()](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#order-by) 
+method
+
 Example:
 ```python
 print(main())
