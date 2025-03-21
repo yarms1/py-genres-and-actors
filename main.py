@@ -32,5 +32,6 @@ def main() -> QuerySet:
         "first_name")
     return actors_with_smith
 
+
 actors_with_smith = main()
 print(actors_with_smith)
